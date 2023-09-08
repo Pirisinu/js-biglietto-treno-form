@@ -1,0 +1,12 @@
+:root{
+  --myRed: #B91450;
+}
+.my-txt{
+  color: var(--myRed);
+}
+.my-bg{
+  background-color: var(--myRed);
+}
+.my-border{
+  border: 1px solid var(--myRed);
+}

@@ -6,11 +6,73 @@
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/style.css">
 
   <title>Form Biglietto treno</title>
 </head>
-<body>
-  
+
+<body class="my-bg">
+
+  <div class="container text-center my-4 p-4">
+
+    <h1 class="text-uppercase fw-bolder text-light">calcola il prezzo del tuo biglietto</h1>
+    <div class="card py-3 px-5">
+
+      <div class="d-flex justify-content-evenly my-3 ">
+        <div class="">
+          <h4 class="my-txt">Nome Cognome</h4>
+          <input class="my-border form-control form-text py-2 " type="text" id="user-name">
+        </div>
+        <div>
+          <h4 class="my-txt">Km da percorrere</h4>
+          <input class="my-border form-control form-text py-2 " type="text" id="client-km">
+        </div>
+        <div class="form-group">
+          <label for="age-select">Fascia d'età</label>
+          <select class="form-control" id="age-select">
+            <option>Minorenne</option>
+            <option>Adulto</option>
+            <option>Over65</option>
+          </select>
+        </div>
+      </div>
+      
+      <div>
+        <button class="btn btn-secondary" id="btn-ticket" >Genera</button>
+        <button class="btn btn-secondary" type="reset">Annulla</button>
+      </div>
+    </div>
+  </div>
+
+    <h2 class="text-uppercase fw-bolder text-light">Il tuo biglietto</h2>
+    <div class="card p-3 ">
+      <h4 class="fw-bolder text-uppercase ">Dettaglio Passeggeri</h4>
+      <div class="d-flex">
+        <div class="w-25 bg-secondary">
+          <h5 class="text-uppercase fw-bolder ">Nome passeggero</h5>
+          <p id="user-name-assigned">Nome Prova</p>
+        </div>
+        <div class="w-75 d-flex justify-content-evenly ">
+          <div>
+            <h5>Offerta</h5>
+            <p id="offer"></p>
+          </div>
+          <div>
+            <h5>Carrozza</h5>
+            <p id="rdm-carriage"></p>
+          </div>
+          <div>
+            <h5>Codice Cp</h5>
+            <p id="rdm-code"></p>
+          </div>
+          <div>
+            <h5>Costo biglietto</h5>
+            <p id="ticket-cost"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
   <script src="js/script.js"></script>
 </body>
 </html>
