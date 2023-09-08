@@ -10,14 +10,54 @@
 */
 //Gen
 const userName=document.getElementById('user-name');
-const clientKm=parseFloat(document.getElementById('client-km'));
+const clientKm=document.getElementById('client-km');
+const ageSelected =document.getElementById('age-select');
 const kmPrice = 0.21;
-const userNameAssigned = userName;
+//Discount
+const discountUnder18 = 20;
+const discountOver65 = 40;
+const ticketDefault =document.getElementById('ticket-default')
+const ticketUnder18 =document.getElementById('ticket-under-18')
+const ticketOver65 =document.getElementById('ticket-over-65')
+//Data validation
 
-const btnTicket = document.getElementById('btn-ticket').innerHTML;
 
-btnTicket.addeventListener('click', function(){
-  document.getElementById('user-name-assigned') = userNameAssigned.innerHTML;
+/***********************************************************************/
+
+const btnTicket = document.getElementById('btn-ticket');
+
+btnTicket.addEventListener('click', function(){
+  //Name Assing
+  const nome = userName.value;
+  document.getElementById('user-name-assigned').innerHTML = nome;
+  //Default Ticket
+  const km = clientKm.value;
+  const ticketPrice = (kmPrice * km);
+  let finalTicket = ticketPrice;
+  let message = '';
+  let offerMessage = '';
+
+  //Discount Ticket
+  if ((ageSelected).value === 'Minorenne'){
+    finalTicket *= 1- (discountUnder18/100);
+    message = `${finalTicket}€`;
+    offerMessage = 'Biglietto Under18';
+    document.getElementById('final-ticket').innerHTML = message;
+    document.getElementById('offer').innerHTML = offerMessage;
+  }
+  else if ((ageSelected).value === 'Over65'){
+    finalTicket *= 1- (discountOver65/100);
+    message = `${finalTicket}€`;
+    offerMessage = `Biglietto Over65`
+    document.getElementById('final-ticket').innerHTML = message;
+    document.getElementById('offer').innerHTML = offerMessage;
+  }
+  else{
+    offerMessage = `Biglietto Standard`
+    document.getElementById('final-ticket').innerHTML = finalTicket;
+    document.getElementById('offer').innerHTML = offerMessage;
+  }
+  console.log((ageSelected).value)
+
 });
-
 
