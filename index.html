@@ -25,14 +25,15 @@
         </div>
         <div>
           <h4 class="my-txt">Km da percorrere</h4>
-          <input class="my-border form-control form-text py-2 " type="text" id="client-km">
+          <input class="my-border form-control form-text py-2 " type="number" id="client-km">
         </div>
         <div class="form-group d-flex flex-column justify-content-between ">
           <label class="my-txt fs-3 " for="age-select">Fascia d'età</label>
           <select class="bg-light my-border rounded-1 fs-4 mt-2 " id="age-select">
-            <option>Adulto</option>
-            <option>Minorenne</option>
-            <option>Over65</option>
+            <option value="">seleziona fascia d'età</option>
+            <option value="Adulto">Adulto</option>
+            <option value="Minorenne">Minorenne</option>
+            <option value="Over65">Over65</option>
           </select>
         </div>
       </div>
@@ -44,6 +45,7 @@
     </div>
   </div>
 
+  <div id="ticket" class="d-none">
     <h2 class="text-uppercase fw-bolder text-light">Il tuo biglietto</h2>
     <div class="card p-3 ">
       <h4 class="fw-bolder text-uppercase ">Dettaglio Passeggeri</h4>
@@ -72,7 +74,7 @@
         </div>
       </div>
     </div>
-    
+  </div>    
   <script src="js/script.js"></script>
 </body>
 </html>

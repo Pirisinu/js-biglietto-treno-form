@@ -15,6 +15,7 @@ const ageSelected =document.getElementById('age-select');
 const kmPrice = 0.21;
 let message = '';
 let offerMessage = '';
+const ticketEl = document.getElementById('ticket');
 //Discount
 const discountUnder18 = 20;
 const discountOver65 = 40;
@@ -27,8 +28,13 @@ const ticketOver65 =document.getElementById('ticket-over-65')
 /***********************************************************************/
 
 const btnTicket = document.getElementById('btn-ticket');
+const btnReset = document.getElementById('btn-reset');
 
-btnTicket.addEventListener('click', function(){
+btnTicket.addEventListener('click', ticketGenerator);
+btnReset.addEventListener('click', reset);
+
+
+function  ticketGenerator(){
   //Name Assing
   const nome = userName.value;
   document.getElementById('user-name-assigned').innerHTML = nome;
@@ -59,18 +65,35 @@ btnTicket.addEventListener('click', function(){
   }
 
   //Carrozza Random 
-  const randomCarriage =parseInt(Math.random() * 25 + 1);
+  const randomCarriage = randomizer(1, 10)
   document.getElementById('rdm-carriage').innerHTML = randomCarriage;
 
   //Codice Random 
-  const randomCode =parseInt(Math.random() * 99999 + 1);
+  const randomCode = randomizer(9000, 9999)
   document.getElementById('rdm-code').innerHTML = randomCode;
   
-  //Reset button 
-  const btnReset = document.getElementById('btn-reset');
-  btnReset.addEventListener('click', function(){
-   document.querySelector('.form-text').innertext = '';
-  });
-});
+  ticketEl.classList.remove('d-none');
+};
+
+
+/**
+ * erstrattore random da min a max
+ * @param {number} min 
+ * @param {number} max 
+ * @returns number
+ */
+function randomizer(min, max){
+  return Math.floor(Math.random() * (max-min + 1) + min)
+}
+
+function reset(){
+  userName.value = '';
+  clientKm.value = '';
+  ageSelected.value = '';
+  console.log('reset');
+    
+  ticketEl.classList.add
+  ('d-none');
+}
 
 
